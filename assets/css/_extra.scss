@@ -1,9 +1,15 @@
+
+
 body {
     background: #020408 !important;
     color: #b4c5e4 !important;
-    overflow: hidden;
 
+    /* FIX: allow scrolling on mobile */
+    overflow-x: hidden;
+    overflow-y: auto;
 }
+
+
 
 .sidebar {
     background: #04070d !important;
@@ -14,7 +20,12 @@ body {
 .sidebar__avatar img {
     box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
     border-radius: 8px;
+
+    /* responsive avatar */
+    max-width: 130px;
 }
+
+
 
 h1, h2, h3, h4, h5 {
     color: #00f7ff !important;
@@ -39,6 +50,8 @@ a:hover {
     text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
 }
 
+
+
 .social__icon {
     color: #00e7ff !important;
 }
@@ -47,6 +60,8 @@ a:hover {
     color: #00ffff !important;
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.9);
 }
+
+
 
 .post-item {
     background: #0a0f18 !important;
@@ -61,21 +76,26 @@ a:hover {
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
 }
 
+
+
 pre, code {
     background: #001f1f !important;
     color: #00ffea !important;
     border: 1px solid rgba(0, 255, 255, 0.2);
 }
 
+
+
 .content {
-    background: #05090f !important;
+    background: radial-gradient(circle at center, #03121f 0%, #01070e 40%, #000000 100%);
+    color: #00f7ff !important;
+    text-shadow: 0 0 4px rgba(0,255,255,.4);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.06);
-    background: radial-gradient(circle at center, #03121f 0%, #01070e 40%, #000000 100%);
-    color: #00f7ff;
-    text-shadow: 0 0 4px rgba(0,255,255,.4);
 }
+
+
 
 ::-webkit-scrollbar {
     width: 8px;
@@ -90,6 +110,8 @@ pre, code {
     background: #00ffff99;
 }
 
+
+
 .hacker-bg {
     position: fixed;
     top: 0;
@@ -97,9 +119,9 @@ pre, code {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: radial-gradient(circle at center, #001018 0%, #000 80%);
     pointer-events: none;
     overflow: hidden;
+    background: radial-gradient(circle at center, #001018 0%, #000 80%);
 }
 
 .hacker-bg::before {
@@ -118,8 +140,46 @@ pre, code {
     50% { opacity: 0.25; }
 }
 
+
 .main-header h1,
 .main-header a {
-    color: #00eaff !important; /* neon-cyan */
+    color: #00eaff !important;
     text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+
+@media (max-width: 768px) {
+
+    body {
+        overflow-y: auto !important;
+    }
+
+    .sidebar {
+        box-shadow: none;
+        border-right: none;
+        border-bottom: 1px solid rgba(0,255,255,0.15);
+    }
+
+    .sidebar__avatar img {
+        max-width: 90px;
+        margin: 10px auto;
+    }
+
+    .content {
+        padding: 12px;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    h1 {
+        font-size: 1.6rem !important;
+    }
+
+    .post-item {
+        padding: 8px;
+    }
+
+    .hacker-bg {
+        opacity: 0.4; /* reduce effect for readability */
+    }
 }
