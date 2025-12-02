@@ -27,3 +27,11 @@ identifier = "tags"
 name = "Tags"
 url = "/tags/"
 
+[caches]
+  [caches.assets]
+    maxAge = -1
+
+  [caches.images]
+    dir = ':cacheDir/images'
+    maxAge = -1
+

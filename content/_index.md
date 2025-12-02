@@ -2,7 +2,7 @@
 title: "Home"
 ---
 
-# 🚧 Site Under Construction
+#  Site Under Construction
 
 This page is currently being updated due to a migration.  
 
