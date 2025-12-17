@@ -22,3 +22,26 @@ document.addEventListener('keydown', (e) => {
     if (key === 'b') document.getElementById('link-back').click();
   }
 });
+
+const downloadBtn = document.getElementById('download-cv');
+
+if (downloadBtn) {
+  downloadBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const link = document.createElement('a');
+    link.href = downloadBtn.href;
+    link.download = 'Daniel_Callejo_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+}
+
+document.querySelectorAll('a[target="_blank"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    window.open(a.href, '_blank');
+  });
+});
+
