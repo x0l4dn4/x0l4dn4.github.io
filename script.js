@@ -4,23 +4,6 @@ if (yearEl) {
 }
 
 
-
-const downloadBtn = document.getElementById('download-cv');
-
-if (downloadBtn) {
-  downloadBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    const link = document.createElement('a');
-    link.href = 'cv.pdf';
-    link.download = 'Daniel_Callejo_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  });
-}
-
-
 document.addEventListener('keydown', (e) => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
