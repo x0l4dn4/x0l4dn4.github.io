@@ -26,22 +26,24 @@ document.addEventListener('keydown', (e) => {
 const downloadBtn = document.getElementById('download-cv');
 
 if (downloadBtn) {
-  downloadBtn.addEventListener('click', (e) => {
+  downloadBtn.addEventListener('click', async (e) => {
     e.preventDefault();
+    
+    try {
+      const response = await fetch('assets/cv.pdf');
+      const blob = await response.blob();
 
-    const link = document.createElement('a');
-    link.href = downloadBtn.href;
-    link.download = 'Daniel_Callejo_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Daniel_Callejo_CV.pdf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('Download failed:', err);
+    }
   });
 }
-
-document.querySelectorAll('a[target="_blank"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    window.open(a.href, '_blank');
-  });
-});
 
